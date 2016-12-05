@@ -200,7 +200,7 @@ igb_netmap_txsync(struct netmap_kring *kring, int flags)
 			D("TDH wrap %d", nic_i);
 			nic_i -= kring->nkr_num_slots;
 		}
-		txr->next_to_use = nic_i;
+		txr->next_to_clean = nic_i;
 		kring->nr_hwtail = nm_prev(netmap_idx_n2k(kring, nic_i), lim);
 	}
 out:
